@@ -13,6 +13,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { WtfComponent } from './comps/wtf/wtf.component';
+import { PageNotFoundComponent } from './comps/page-not-found/page-not-found.component';
+import { RootComponent } from './comps/root/root.component';
+import { AddressComponent } from './comp/address/address.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './comp/dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { TreeComponent } from './comp/tree/tree.component';
+import { MatTreeModule } from '@angular/material/tree';
+import { TableComponent } from './comp/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 //const routes: Routes = []
 @NgModule({
@@ -20,7 +37,13 @@ import { WtfComponent } from './comps/wtf/wtf.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    WtfComponent
+    WtfComponent,
+    PageNotFoundComponent,
+    RootComponent,
+    AddressComponent,
+    DashboardComponent,
+    TreeComponent,
+    TableComponent
   ],
   imports: [
 
@@ -34,7 +57,18 @@ import { WtfComponent } from './comps/wtf/wtf.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatTreeModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

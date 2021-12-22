@@ -13,11 +13,11 @@ export class WtfComponent implements OnInit {
   public date: Date | undefined;
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    setInterval(() => {
-      this.date = new Date()
-    }, 3000)
+    // setInterval(() => {
+    //   this.date = new Date()
+    // }, 3000)
 
-    setInterval(this.myFunction, 1000);
+    // setInterval(this.myFunction, 1000);
   }
 
   ngOnInit(): void {
@@ -34,8 +34,8 @@ export class WtfComponent implements OnInit {
     }
   }
 
-  myFunction() {
-    console.log(`wtf hello ${Date.now()}`);
-    this.now = Date.now();
-  }
+  // myFunction() {
+  //   console.log(`wtf hello ${Date.now()}`);
+  //   this.now = Date.now();
+  // }
 }
