@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { WtfComponent } from './comps/wtf/wtf.component';
 import { PageNotFoundComponent } from './comps/page-not-found/page-not-found.component';
-import { AddressComponent } from './comp/address/address.component';
-import { DashboardComponent } from './comp/dashboard/dashboard.component';
-import { TableComponent } from './comp/table/table.component';
-import { TreeComponent } from './comp/tree/tree.component';
+import { AddressComponent } from './comps/address/address.component';
+import { DashboardComponent } from './comps/dashboard/dashboard.component';
+import { TableComponent } from './comps/table/table.component';
+import { TreeComponent } from './comps/tree/tree.component';
 
 const routes: Routes = [
   {
