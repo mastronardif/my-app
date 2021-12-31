@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable, switchMap, tap } from 'rxjs';
+import { HeroService } from 'src/app/services/hero.service';
 
 @Component({
   selector: 'app-wtf',
@@ -8,11 +10,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class WtfComponent implements OnInit {
   private ooo$!: any;
+  //hero$!: Observable<any>;
+  heroes$: Observable<any> | undefined;
   id: number = 0;
   public now: number=321;
   public date: Date | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+
+  constructor(private route: ActivatedRoute, private router: Router, private service: HeroService) {
     // setInterval(() => {
     //   this.date = new Date()
     // }, 3000)
@@ -26,6 +31,12 @@ export class WtfComponent implements OnInit {
     });
 
     console.log(`wtf: init id(${this.id})`);
+
+    this.heroes$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.service.getHeroes(params.get('id')!))
+    );
+
   }
 
   ngOnDestroy() {

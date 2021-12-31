@@ -7,6 +7,7 @@ import { AddressComponent } from './comps/address/address.component';
 import { DashboardComponent } from './comps/dashboard/dashboard.component';
 import { TableComponent } from './comps/table/table.component';
 import { TreeComponent } from './comps/tree/tree.component';
+import { AccordianComponent } from './comps/accordian/accordian.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'table',  component: TableComponent },
   { path: 'tree',  component: TreeComponent },
   { path: 'dashboard',  component: DashboardComponent },
+  { path: 'accordian',  component: AccordianComponent },
 
 
   { path: '',   redirectTo: '/myapp', pathMatch: 'full' },

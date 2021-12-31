@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -30,6 +31,8 @@ import { TableComponent } from './comps/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
+import { AccordianComponent } from './comps/accordian/accordian.component';
 
 //const routes: Routes = []
 @NgModule({
@@ -43,15 +46,18 @@ import { MatSortModule } from '@angular/material/sort';
     AddressComponent,
     DashboardComponent,
     TreeComponent,
-    TableComponent
+    TableComponent,
+    AccordianComponent
   ],
   imports: [
 
     BrowserModule,
     //RouterModule.forRoot(routes),
+    HttpClientModule,
     MatSliderModule,
     BrowserAnimationsModule,
     LayoutModule,
+    CdkAccordionModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
