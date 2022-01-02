@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './comps/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -29,10 +30,12 @@ import { TreeComponent } from './comps/tree/tree.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { TableComponent } from './comps/table/table.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordianComponent } from './comps/accordian/accordian.component';
+import { DialogBoxComponent } from './comps/dialog-box/dialog-box.component';
 
 //const routes: Routes = []
 @NgModule({
@@ -47,7 +50,8 @@ import { AccordianComponent } from './comps/accordian/accordian.component';
     DashboardComponent,
     TreeComponent,
     TableComponent,
-    AccordianComponent
+    AccordianComponent,
+    DialogBoxComponent
   ],
   imports: [
 
@@ -68,11 +72,13 @@ import { AccordianComponent } from './comps/accordian/accordian.component';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    FormsModule,
     ReactiveFormsModule,
     MatGridListModule,
     MatMenuModule,
     MatTreeModule,
     MatTableModule,
+    MatDialogModule,
     MatPaginatorModule,
     MatSortModule
   ],

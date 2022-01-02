@@ -3,16 +3,18 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
+import { MatButton } from '@angular/material/button';
 
 // TODO: Replace this with your own data model type
 export interface TableItem {
   name: string;
   id: number;
+  action?: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: TableItem[] = [
-  {id: 1, name: 'Hydrogen'},
+  {id: 1, name: 'Hydrogen', action: 'wtf'},
   {id: 2, name: 'Helium'},
   {id: 3, name: 'Lithium'},
   {id: 4, name: 'Beryllium'},
@@ -32,6 +34,8 @@ const EXAMPLE_DATA: TableItem[] = [
   {id: 18, name: 'Argon'},
   {id: 19, name: 'Potassium'},
   {id: 20, name: 'Calcium'},
+
+  {id: 21, name: 'api'},
 ];
 
 /**
