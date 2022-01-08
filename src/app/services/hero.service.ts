@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,21 @@ export class HeroService {
 
   constructor(private http: HttpClient) { }
 
-  getHeroes(id: string): Observable <any[]> {
+  getInvoice(id: string): Observable <any[]> {
     id = id ? id : '';
     return this.http.get<any[]>(this.heroesUrl);
+  }
+
+  getXYZ(url: string): Observable <any[]> {
+    return this.http.get<any[]>(url);
+  }
+
+  getFrom(): Observable<any> {
+    const objects = [
+      { id: 1, name: 'Fabian' },
+      { id: 2, name: 'Jan-Niklas' },
+    ];
+    const observable$ = from(objects);
+    return observable$;
   }
 }

@@ -14,10 +14,10 @@ export interface TableItem {
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: TableItem[] = [
-  {id: 1, name: 'Hydrogen', action: 'wtf'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
+  {id: 1, name: 'rxjs_testSwitched', action: 'wtf'},
+  {id: 2, name: 'rxjs_testSwitched22'},
+  {id: 3, name: 'rxjs_forkJoin'},
+  {id: 4, name: 'rxjs_from'},
   {id: 5, name: 'Boron'},
   {id: 6, name: 'Carbon'},
   {id: 7, name: 'Nitrogen'},

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router'
+//import { RouterModule, Routes } from '@angular/router'
 import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
-import { WtfComponent } from './comps/wtf/wtf.component';
+import { WtfComponent,  DialogContentExampleDialog} from './comps/wtf/wtf.component';
 import { PageNotFoundComponent } from './comps/page-not-found/page-not-found.component';
 import { RootComponent } from './comps/root/root.component';
 import { AddressComponent } from './comps/address/address.component';
@@ -43,7 +43,7 @@ import { DialogBoxComponent } from './comps/dialog-box/dialog-box.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    WtfComponent,
+    WtfComponent, DialogContentExampleDialog,
     PageNotFoundComponent,
     RootComponent,
     AddressComponent,

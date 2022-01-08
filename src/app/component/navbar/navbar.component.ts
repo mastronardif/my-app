@@ -27,7 +27,7 @@ export class NavbarComponent {
     setInterval(() => {
       this.now = new Date().getTime();
       console.log(`Hello ${ this.now}`);
-    }, 2000)
+    }, 15000)
 
    //the this thing?? setInterval(this.myFunction, 2000)
   }

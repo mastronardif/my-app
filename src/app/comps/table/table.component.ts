@@ -5,6 +5,7 @@ import { MatTable } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from '../../comps/dialog-box/dialog-box.component';
 import { TableDataSource, TableItem } from './table-datasource';
+import { Rxjs101Service } from 'src/app/services/rxjs101.service';
 
 @Component({
   selector: 'app-table',
@@ -20,7 +21,7 @@ export class TableComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'action'];
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private testRxjs: Rxjs101Service) {
     this.dataSource = new TableDataSource();
   }
 
@@ -64,6 +65,7 @@ export class TableComponent implements AfterViewInit {
       if (value.id == row_obj.id) {
         value.name = row_obj.name;
         console.log(`ZZZZZZZZZZZ ${JSON.stringify(row_obj)}`);
+        this.testService(row_obj.name);
       }
       return true;
     });
@@ -86,5 +88,23 @@ export class TableComponent implements AfterViewInit {
 
   openDialog00(one: string, two: any) {
     alert(one + ': ' + JSON.stringify(two));
+  }
+
+  testService(name: string) {
+
+    this.testRxjs.testService(name);
+
+    //console.log(`testService ${name}`);
+
+//     switch (name) {
+//       case 'testSwitched':
+//         console.log('AAAAAAAAAAAAAAAAAAAAAAAAA');
+//         this.testRxjs.testSwitched(name);
+//         break;
+
+//       default:
+
+//         break;
+//     }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, switchMap, tap } from 'rxjs';
 import { HeroService } from 'src/app/services/hero.service';
@@ -17,7 +18,7 @@ export class WtfComponent implements OnInit {
   public date: Date | undefined;
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: HeroService) {
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private service: HeroService) {
     // setInterval(() => {
     //   this.date = new Date()
     // }, 3000)
@@ -34,7 +35,7 @@ export class WtfComponent implements OnInit {
 
     this.heroes$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.service.getHeroes(params.get('id')!))
+        this.service.getInvoice(params.get('id')!))
     );
 
   }
@@ -45,8 +46,21 @@ export class WtfComponent implements OnInit {
     }
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
   // myFunction() {
   //   console.log(`wtf hello ${Date.now()}`);
   //   this.now = Date.now();
   // }
 }
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dialog-content-example-dialog.html',
+})
+export class DialogContentExampleDialog {}
