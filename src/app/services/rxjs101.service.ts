@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, from, Observable, of } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { catchError, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { HeroService } from './hero.service';
 
 @Injectable({
@@ -11,10 +11,7 @@ export class Rxjs101Service {
   constructor(private http: HttpClient, private service: HeroService) {}
 
   testSwitched(id: string): void {
-    const switched = of(1, 2, 3).pipe(
-      switchMap((x: number) => of(x, x ** 2, x ** 3))
-    );
-    switched.subscribe((x) => console.log(x));
+    this.service.getInvoice
   }
 
   testSwitched22(id: string) {

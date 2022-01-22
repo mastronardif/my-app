@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @angular-eslint/component-class-suffix */
+/* eslint-disable @angular-eslint/component-selector */
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, switchMap, tap } from 'rxjs';
@@ -9,7 +11,7 @@ import { HeroService } from 'src/app/services/hero.service';
   templateUrl: './wtf.component.html',
   styleUrls: ['./wtf.component.css'],
 })
-export class WtfComponent implements OnInit {
+export class WtfComponent implements OnInit, OnDestroy {
   private ooo$!: any;
   //hero$!: Observable<any>;
   heroes$: Observable<any> | undefined;
