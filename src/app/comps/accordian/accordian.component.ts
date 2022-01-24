@@ -32,7 +32,7 @@ export class AccordianComponent implements OnInit {
     console.log(`accordian.component ngOnInit()`);
 
     this.formSection = new FormGroup({
-     // firstName: new FormControl(''),
+      // firstName: new FormControl(''),
 
       // stackDetails: new FormGroup({
       //   stack: new FormControl(''),
@@ -59,5 +59,20 @@ export class AccordianComponent implements OnInit {
 
   submitAccordian() {
     console.log(this);
+  }
+
+  patch(section: string, data: any) {
+    console.log('patch(section:string, data: any)');
+    const dummyAddress = {
+      address: {
+        company: 'UPS',
+        firstName: 'Frank',
+        postalCode: '07090',
+        state: 'CT',
+        shipping: 'priority',
+      },
+    };
+
+    this.formSection.patchValue(dummyAddress);
   }
 }

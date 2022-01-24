@@ -58,6 +58,6 @@
   <button type="submit">Submit Application</button>
 
   <!-- <app-address formGroupName="address"> </app-address> -->
-
+  <button type="button"  (click)="patch('addressInfo','dummyData')">Patch</button>
   <pre>{{formSection.value |json }}</pre>
 </form>
