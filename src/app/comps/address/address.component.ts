@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.css']
 })
-export class AddressComponent {
+export class AddressComponent implements OnInit{
+  @Input() formGroupName!: string
+  form!: FormGroup;
+
   addressForm = this.fb.group({
     company: null,
     firstName: [null, Validators.required],
@@ -85,9 +88,14 @@ export class AddressComponent {
     {name: 'Wyoming', abbreviation: 'WY'}
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private rootFormGroup: FormGroupDirective) {  }
+  ngOnInit(): void {
+    this.form = this.rootFormGroup.control.get(this.formGroupName) as FormGroup;
+  }
 
   onSubmit(): void {
-    alert('Thanks!');
+    alert('Thanks! address');
+    console.log(this.addressForm?.value);
+    console.log(this)
   }
 }
