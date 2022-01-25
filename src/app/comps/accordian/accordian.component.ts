@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import * as gDummy from '../../dummydata/dummys';
+
 import {
   FormBuilder,
   FormGroup,
   FormControl,
   Validators,
 } from '@angular/forms';
-
 @Component({
   selector: 'app-accordian',
   templateUrl: './accordian.component.html',
@@ -51,6 +52,7 @@ export class AccordianComponent implements OnInit {
         shipping: new FormControl(''),
       }),
     });
+    this.patch('address', gDummy.mockData.address);
   }
 
   callingFunction() {
@@ -63,16 +65,7 @@ export class AccordianComponent implements OnInit {
 
   patch(section: string, data: any) {
     console.log('patch(section:string, data: any)');
-    const dummyAddress = {
-      address: {
-        company: 'UPS',
-        firstName: 'Frank',
-        postalCode: '07090',
-        state: 'CT',
-        shipping: 'priority',
-      },
-    };
-
+    const dummyAddress = data;
     this.formSection.patchValue(dummyAddress);
   }
 }

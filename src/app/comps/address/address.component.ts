@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit{
-  @Input() formGroupName!: string
+  @Input() formGroupName!: string;
   form!: FormGroup;
 
   addressForm = this.fb.group({
@@ -89,7 +89,10 @@ export class AddressComponent implements OnInit{
   ];
 
   constructor(private fb: FormBuilder, private rootFormGroup: FormGroupDirective) {  }
+  //constructor(private fb: FormBuilder) {  }
+
   ngOnInit(): void {
+    console.log(this.formGroupName);
     this.form = this.rootFormGroup.control.get(this.formGroupName) as FormGroup;
   }
 
