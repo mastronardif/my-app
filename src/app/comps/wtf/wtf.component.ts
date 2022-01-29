@@ -1,6 +1,7 @@
 /* eslint-disable @angular-eslint/component-class-suffix */
 /* eslint-disable @angular-eslint/component-selector */
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, switchMap, tap } from 'rxjs';
@@ -19,8 +20,11 @@ export class WtfComponent implements OnInit, OnDestroy {
   public now: number=321;
   public date: Date | undefined;
 
+  formSection = new FormGroup({
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private service: HeroService) {
+  });
+
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private service: HeroService) {
     // setInterval(() => {
     //   this.date = new Date()
     // }, 3000)
@@ -40,6 +44,19 @@ export class WtfComponent implements OnInit, OnDestroy {
         this.service.getInvoice(params.get('id')!))
     );
 
+    this.formSection = new FormGroup({
+      address: new FormGroup({
+        company: new FormControl(''),
+        firstName: new FormControl(''),
+        lastName: new FormControl(''),
+        address: new FormControl(''),
+        address2: new FormControl(''),
+        city: new FormControl(''),
+        state: new FormControl(''),
+        postalCode: new FormControl(''),
+        shipping: new FormControl(''),
+      }),
+    });
   }
 
   ngOnDestroy() {
