@@ -1,3 +1,4 @@
+<form [formGroup]="formSection">
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
@@ -15,10 +16,25 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content style="background-color: blanchedalmond;" class="dashboard-card-content">
           <div>Card Content Here</div>
+          sw/ on {{card.title}}
+          <container-element [ngSwitch]="card.title">
+
+            <!-- app-accordian', -->
+            <app-accordian *ngSwitchCase="'Card 1'"></app-accordian>
+            <!-- <app-address *ngSwitchCase="'Card 1'"></app-address><app-address *ngSwitchCase="'Card 1'"></app-address> -->
+
+            <!-- Address -->
+          <app-address *ngSwitchCase="'Card 3'" formGroupName="address"></app-address>
+
+          <!-- <app-address *ngSwitchDefault formGroupName="address"></app-address> -->
+          <app-page-not-found *ngSwitchDefault></app-page-not-found>
+        </container-element>
+
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+</form>
