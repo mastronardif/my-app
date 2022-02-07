@@ -5,6 +5,22 @@ export const files = [
     type: 'folder',
     children: [
       {
+        name: 'comps',
+        type: 'folder',
+        children: [
+          {
+            name: 'table with shit',
+            type: 'folder',
+            children: [
+              { name: '/wtf/111', type: 'route' },
+              { name: 'obbservab;e', type: 'file' },
+            ]
+          },
+          { name: 'material', type: 'folder' }
+        ]
+      }
+      ,
+      {
         name: 'src',
         type: 'folder',
         children: [

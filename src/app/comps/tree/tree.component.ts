@@ -61,6 +61,7 @@ export class TreeComponent {
 
   /** Get the level of the node */
   getLevel(node: FlatTreeNode): number {
+    //console.log(node);
     return node.level;
   }
 
