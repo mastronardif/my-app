@@ -8,6 +8,7 @@ import { DashboardComponent } from './comps/dashboard/dashboard.component';
 import { TableComponent } from './comps/table/table.component';
 import { TreeComponent } from './comps/tree/tree.component';
 import { AccordianComponent } from './comps/accordian/accordian.component';
+import { TableFromUrlComponent } from './comps/table-from-url/table-from-url.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'wtf/:id', component: WtfComponent },
 
   { path: 'table',  component: TableComponent },
+  { path: 'tablefromurl',  component: TableFromUrlComponent },
   { path: 'tree',  component: TreeComponent },
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'accordian',  component: AccordianComponent },

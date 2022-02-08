@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//import { CommonModule } from '@angular/common';
 //import { RouterModule, Routes } from '@angular/router'
 import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { HttpClientModule } from '@angular/common/http';
 import { AccordianComponent } from './comps/accordian/accordian.component';
 import { DialogBoxComponent } from './comps/dialog-box/dialog-box.component';
+import { TableFromUrlComponent, DialogOverviewExampleDialog } from './comps/table-from-url/table-from-url.component';
 
 //const routes: Routes = []
 @NgModule({
@@ -49,13 +51,14 @@ import { DialogBoxComponent } from './comps/dialog-box/dialog-box.component';
     AddressComponent,
     DashboardComponent,
     TreeComponent,
-    TableComponent,
     AccordianComponent,
-    DialogBoxComponent
+    TableComponent, DialogBoxComponent,
+    TableFromUrlComponent, DialogOverviewExampleDialog
   ],
   imports: [
 
     BrowserModule,
+    //CommonModule,
     //RouterModule.forRoot(routes),
     HttpClientModule,
     MatSliderModule,
