@@ -56,6 +56,8 @@ export interface User {
 })
 export class TableFromUrlComponent implements OnInit {
   displayedColumns: string[] = []; //['name', 'email', 'phone', 'website', 'action'];
+  displayedColumnsExtra: string[] = ['edit', 'bobo'];
+  //displayedColumnsAll: string[] = [];
   dataSource!: MatTableDataSource<any>;
   //user;
 
@@ -74,7 +76,8 @@ export class TableFromUrlComponent implements OnInit {
         next: (v) => {console.log(v);
           this.users = v;
           this.displayedColumns = Object.keys(this.users[0]);
-
+          //this.displayedColumnsExtra.push('action');
+          //this.displayedColumnsAll = this.displayedColumns.concat(this.displayedColumnsExtra);
           this.dataSource = new MatTableDataSource(v);
           this.dataSource.sort = this.sort;
         },
@@ -116,7 +119,21 @@ export class TableFromUrlComponent implements OnInit {
   //   this.dataSource = new MatTableDataSource(this.users);
   // }
 
-  // editUser(user) {
+   editUser(action: string, user: any) {
+     // switch on action
+    console.log(JSON.stringify(action));
+    switch (action) {
+      case 'edit':
+        console.log(JSON.stringify(user));
+        alert(JSON.stringify(user));
+        break;
+
+      default:
+        console.log(`Sorry, we are out of ${action}.`);
+        alert(`Sorry, we are out of ${action}.`);
+    }
+    //  console.log(JSON.stringify(user));
+    //  alert(JSON.stringify(user));
   //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
   //     width: '250px',
   //     data: user,
@@ -125,7 +142,7 @@ export class TableFromUrlComponent implements OnInit {
   //   dialogRef.afterClosed().subscribe((result) => {
   //     this.user = user;
   //   });
-  // }
+   }
 
   getZZZ(fldIndex: number): string {
     if (this.users && this.users[0]) {
