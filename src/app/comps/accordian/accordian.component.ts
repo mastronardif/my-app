@@ -13,7 +13,7 @@ import {
   styleUrls: ['./accordian.component.css'],
 })
 export class AccordianComponent implements OnInit {
-  items = ['Item 1', 'Item 2', 'Address', 'Item 3', 'Item 4', 'Item 5'];
+  items = ['Item 1', 'app-wtf', 'Address', 'Item 3', 'Item 4', 'Item 5'];
   expandedIndex = 0;
 
   formSection = new FormGroup({

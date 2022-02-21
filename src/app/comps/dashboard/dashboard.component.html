@@ -22,14 +22,15 @@
           <container-element [ngSwitch]="card.title">
 
             <!-- app-accordian', -->
-            <app-accordian *ngSwitchCase="'Card 1'"></app-accordian>
+            <app-accordian *ngSwitchCase="'app-accordian'"></app-accordian>
             <!-- <app-address *ngSwitchCase="'Card 1'"></app-address><app-address *ngSwitchCase="'Card 1'"></app-address> -->
 
             <!-- Address -->
-          <app-address *ngSwitchCase="'Card 3'" formGroupName="address"></app-address>
+          <app-address *ngSwitchCase="'app-address'" formGroupName="address"></app-address>
 
           <!-- <app-address *ngSwitchDefault formGroupName="address"></app-address> -->
-          <app-page-not-found *ngSwitchDefault></app-page-not-found>
+          <span *ngSwitchDefault> nothing to see yet!</span>
+          <!-- <app-page-not-found *ngSwitchDefault></app-page-not-found> -->
         </container-element>
 
         </mat-card-content>

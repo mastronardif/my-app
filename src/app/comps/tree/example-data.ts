@@ -18,7 +18,9 @@ export const files = [
           },
           { name: 'material', type: 'folder' }
         ]
-      }
+      },
+
+      { name: '/root', type: 'route' }
       ,
       {
         name: 'src',
@@ -53,7 +55,7 @@ export const files = [
     ]
   },
   {
-    name: 'angularjs',
+    name: 'The Store',
     type: 'folder',
     children: [
       { name: 'gulpfile.js', type: 'file' },

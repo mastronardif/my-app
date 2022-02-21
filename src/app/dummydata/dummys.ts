@@ -15,3 +15,4 @@ export const mockData = {
 
   wtf: {wtf:{ company: 'UPS', firstName: 'Will' }},
 };
+//https://www.codemag.com/Article/1811061/Angular-and-the-Store

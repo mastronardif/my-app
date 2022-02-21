@@ -9,6 +9,8 @@ import { TableComponent } from './comps/table/table.component';
 import { TreeComponent } from './comps/tree/tree.component';
 import { AccordianComponent } from './comps/accordian/accordian.component';
 import { TableFromUrlComponent } from './comps/table-from-url/table-from-url.component';
+import { RootComponent } from './comps/root/root.component';
+import { GalleryComponent } from './comps/gallery/gallery.component';
 
 const routes: Routes = [
   {
@@ -17,16 +19,18 @@ const routes: Routes = [
     outlet: 'popup'
   },
 
+  { path: 'accordian',  component: AccordianComponent },
   { path: 'address',  component: AddressComponent },
-
-  { path: 'wtf',  component: WtfComponent },
-  { path: 'wtf/:id', component: WtfComponent },
-
+  { path: 'dashboard',  component: DashboardComponent },
+  { path: 'gallery',  component: GalleryComponent },
+  { path: 'root',  component: RootComponent },
   { path: 'table',  component: TableComponent },
   { path: 'tablefromurl',  component: TableFromUrlComponent },
   { path: 'tree',  component: TreeComponent },
-  { path: 'dashboard',  component: DashboardComponent },
-  { path: 'accordian',  component: AccordianComponent },
+  { path: 'wtf',  component: WtfComponent },
+  { path: 'wtf/:id', component: WtfComponent },
+
+
 
 
   { path: '',   redirectTo: '/myapp', pathMatch: 'full' },

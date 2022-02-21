@@ -9,16 +9,18 @@
   >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="/wtf">Link 3/wtf</a>
-      <a mat-list-item [routerLink]="['/wtf']">wtf</a>
+      <a mat-list-item href="#">*R Link 1</a>
+      <a mat-list-item href="#">*R Link 2</a>
+      <a mat-list-item href="/wtf">*R Link 3/wtf</a>
+
       <a mat-list-item [routerLink]="['/accordian']">accordian</a>
+      <a mat-list-item [routerLink]="['/address']">address</a>
+      <a mat-list-item [routerLink]="['/dashboard']">dashboard</a>
+      <a mat-list-item [routerLink]="['/gallery']">gallery</a>
       <a mat-list-item [routerLink]="['/table']">table</a>
       <a mat-list-item [routerLink]="['/tablefromurl']">TableFromUrl</a>
       <a mat-list-item [routerLink]="['/tree']">tree</a>
-      <a mat-list-item [routerLink]="['/dashboard']">dashboard</a>
-      <a mat-list-item [routerLink]="['/address']">address</a>
+      <a mat-list-item [routerLink]="['/wtf']">wtf</a>
       <a mat-list-item [routerLink]="['/wtf', 123]">/wtf/id</a>
       <a mat-list-item [routerLink]="['/wtf', now]">/wtf/{{now}}</a>
 
@@ -36,6 +38,24 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>my-app</span>
+      <!-- <button mat-raised-button (click)="loader.show()">
+        Show Loader
+      </button>
+
+      <button mat-raised-button (click)="loader.hide()">
+        Hide Loader
+      </button>
+
+      <button mat-raised-button (click)="fetchUser()">
+        fetchUser
+      </button>
+
+      <pre>P{{prevent}} p</pre>
+<div *ngIf="prevent">
+  sadfasfdasf
+</div>
+      <mat-progress-spinner [mode]="'indeterminate'" *ngIf="(loading$ | async)"></mat-progress-spinner> -->
+
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

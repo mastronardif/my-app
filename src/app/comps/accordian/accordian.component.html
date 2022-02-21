@@ -34,7 +34,7 @@
         <container-element [ngSwitch]="item">
           <!-- the same view can be shown in more than one case -->
           <b *ngSwitchCase="'Item 1'">.. .</b>
-          <app-wtf *ngSwitchCase="'Item 2'">... </app-wtf>
+          <app-wtf *ngSwitchCase="'app-wtf'">... </app-wtf>
           <app-table *ngSwitchCase="'Item 3'">...</app-table>
 
           <app-address *ngSwitchCase="'Address'" formGroupName="address"> </app-address>
@@ -42,9 +42,8 @@
           <b *ngSwitchCase="'match_expression_3'">...</b>
 
           <!--default case when there are no matches -->
-          <app-page-not-found *ngSwitchDefault
-            >ddddddddddddddd</app-page-not-found
-          >
+          <span *ngSwitchDefault> ddddddddddddddd </span>
+          <!-- <app-page-not-found *ngSwitchDefault> ddddddddddddddd </app-page-not-found> -->
         </container-element>
         <!-- AAAAAAAA {{ item }} vvvvvvv
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis

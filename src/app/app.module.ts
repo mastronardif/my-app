@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //import { CommonModule } from '@angular/common';
 //import { RouterModule, Routes } from '@angular/router'
@@ -7,17 +7,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
-import { WtfComponent,  DialogContentExampleDialog} from './comps/wtf/wtf.component';
+import {
+  WtfComponent,
+  DialogContentExampleDialog,
+} from './comps/wtf/wtf.component';
 import { PageNotFoundComponent } from './comps/page-not-found/page-not-found.component';
 import { RootComponent } from './comps/root/root.component';
 import { AddressComponent } from './comps/address/address.component';
+import { GalleryComponent } from './comps/gallery/gallery.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -34,30 +38,76 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AccordianComponent } from './comps/accordian/accordian.component';
 import { DialogBoxComponent } from './comps/dialog-box/dialog-box.component';
-import { TableFromUrlComponent, DialogOverviewExampleDialog } from './comps/table-from-url/table-from-url.component';
+import {
+  TableFromUrlComponent,
+  DialogOverviewExampleDialog,
+} from './comps/table-from-url/table-from-url.component';
+import { StoreModule, MetaReducer } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { storeFreeze } from 'ngrx-store-freeze';
+
+import { GalleryEffect } from './comps/gallery/gallery.effect';
+import { GalleryService } from './comps/gallery/gallery.service';
+import { galleryReducer } from './store/gallery.reducer';
+// import { booksReducer } from './store/books.reducer';
+// import { collectionReducer } from './store/collection.reducer';
+
+import {
+  StoreRouterConnectingModule,
+  RouterStateSerializer,
+} from '@ngrx/router-store';
+
+// import {
+//   AppState,
+//   reducers,
+//   CustomSerializer,
+//   effects
+// } from './store';
+import { environment } from 'src/environments/environment';
+//import { CircleSpinnerComponent } from './comps/circleSpinner/circleSpinner';
+//import { LoadingIndicatorService } from './services/LoadingIndicatorService';
+//import { LoadingInterceptorService } from './services/LoadingInterceptorService';
+//import { HelloComponent } from './comps/hello.component';
+//import { NetworkInterceptor } from './services/network.interceptor';
+import { SpinnerInterceptorService } from './core/services/spinner-interceptor.service';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+
+export const metaReducers: MetaReducer<any>[] = !environment.production
+  ? [storeFreeze]
+  : [];
 
 //const routes: Routes = []
 @NgModule({
-
   declarations: [
     AppComponent,
     NavbarComponent,
-    WtfComponent, DialogContentExampleDialog,
+    WtfComponent,
+    DialogContentExampleDialog,
     PageNotFoundComponent,
     RootComponent,
     AddressComponent,
     DashboardComponent,
     TreeComponent,
     AccordianComponent,
-    TableComponent, DialogBoxComponent,
-    TableFromUrlComponent, DialogOverviewExampleDialog
+    TableComponent,
+    DialogBoxComponent,
+    TableFromUrlComponent,
+    DialogOverviewExampleDialog,
+    GalleryComponent,
+    SpinnerComponent,
+    //CircleSpinnerComponent
   ],
   imports: [
-
     BrowserModule,
+    EffectsModule.forRoot([GalleryEffect]),
+    StoreModule.forRoot({ gallery: galleryReducer }),
+
     //CommonModule,
     //RouterModule.forRoot(routes),
     HttpClientModule,
@@ -83,9 +133,22 @@ import { TableFromUrlComponent, DialogOverviewExampleDialog } from './comps/tabl
     MatTableModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [GalleryService,
+
+    //LoadingIndicatorService,
+    //{ provide: HTTP_INTERCEPTORS,      useClass: NetworkInterceptor,      multi: true, },
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptorService, multi: true }
+
+
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
+function effects(
+  effects: any
+): any[] | import('@angular/core').Type<any> | ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}

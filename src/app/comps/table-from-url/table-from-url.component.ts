@@ -9,6 +9,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { merge } from 'rxjs';
+import { LoadingService } from 'src/app/loading.service';
 import { HeroService } from 'src/app/services/hero.service';
 
 export interface User {
@@ -66,6 +67,8 @@ export class TableFromUrlComponent implements OnInit {
 
   @ViewChild(MatSort)
   sort!: MatSort;
+
+  //loading$ = this.loader.loading$;
 
   constructor(private service: HeroService, public dialog: MatDialog) {}
 
